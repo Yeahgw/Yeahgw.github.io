@@ -1,0 +1,12 @@
+@charset 'UTF-8';
+
+.left-tab{
+	position: fixed;
+	left: 0;
+	width: 100px;
+	line-height: 48px;
+	background: #ddd;
+}
+.left-tab .blog-item a{
+	color: #eee;
+}
