@@ -2,8 +2,19 @@ let webpack = require('webpack'),
 	path = require('path'),
 	env = process.env.NODE_ENV,
 	htmlPlugin = require('html-webpack-plugin'),
-	extarctTextPlugin = require('extract-text-webpack-plugin'),
+	ExtarctTextPlugin = extarctTextPlugin = require('extract-text-webpack-plugin'),
 	autoPrefixer = require('autoprefixer');
+
+let postcssConfig = {
+	loader: 'postcss-loader',
+	options: {
+        plugins: [
+            autoPrefixer({
+                browserslist:['ios >= 7', 'Android>=4.4', "> 1%", "last 2 versions"]
+            })
+        ]
+    }
+};
 
 let commonConfig = {
 	entry: {
@@ -35,12 +46,42 @@ let commonConfig = {
 				test: /\.vue$/,
 				loader: 'vue-loader',
 				options: {
+					loaders:{
+						scss: 'vue-style-loader!css-loader!sass-loader',
+						sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+					},
+					extractCSS: true
+					/*loaders: {
+						css: extarctTextPlugin.extract({
+							fallback: 'style-loader',
+							use: [
+							    'css-loader',
+		                        {
+		                            loader: 'postcss-loader',
+		                            options: {
+		                                plugins: [
+		                                    autoPrefixer({
+		                                        browserslist:['ios >= 7', 'Android>=4.4', "> 1%", "last 5 versions"]
+		                                    })
+		                                ]
+		                            }
+		                        },
+		                        'sass-loader']
+						})
+						//postcss: [require('autoprefixer')({ browsers: ['ios >= 7', 'Android>=4.4', "> 1%", "last 2 versions"] })]
+					}*/
+				}
+				/*options: {
 					loaders: {
+						css: extarctTextPlugin.extract({
+							use: ['css-loader','sass-loader', postcssConfig],
+							fallback: 'vue-style-loader'
+						})
 						'scss': 'style-loader!css-loader!sass-loader',
 						'sass': 'style-loader!css-loader!sass-loader?indentedSyntax',
 						'less': 'style-loader!css-loader!postcss-loader!less-loader'
 					}
-				}
+				}*/
 			},
 			{
 				test: /\.js$/,
@@ -58,7 +99,7 @@ let commonConfig = {
                             options: {
                                 plugins: [
                                     autoPrefixer({
-                                        browserslist:['ios >= 7','Android>=4.4']
+                                        browserslist:['ios >= 7', 'Android>=4.4', "last 5 versions"]
                                     })
                                 ]
                             }
@@ -93,7 +134,8 @@ let commonConfig = {
                     "comments": false
                 }
 			}
-		})
+		}),
+		new extarctTextPlugin('[name].[hash:4].css')
 	]
 }
 
