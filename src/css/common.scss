@@ -1,11 +1,9 @@
-html, body{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	transition: all ease .2s;
-}
-h1, h2, h3, h4, h5, h6, div, p, ul, li, dl, dt, dd{
+html, body,h1, h2, h3, h4, h5, h6, div, p, ul, li, dl, dt, dd, a{
 	margin: 0;
 	padding:0;
+	box-sizing: border-box;
 }
 ul,li{list-style: none;}
+a,a:hover{
+	text-decoration: none;
+}

@@ -38,9 +38,35 @@
 </script>
 
 <style>
+	html,body{
+		height: 100%;
+	}
 	.container{
-		display: flex;
+		margin: 0 auto;
+		width: 90%;
+		height: 100%;
 		transition: all ease .2s;
+	}
+	header{
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 60px;
+	}
+	.content{
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: flex-start;
+		padding-top: 60px;
+		height: 100%;
+	}
+	.left-tab{
+		flex: 0 0 300px;
 		background: #f7f7f7;
+	}
+	.left-tab a{
+		display: block;
+		color: #1a1a1a;
+		line-height: 24px;
 	}
 </style>
