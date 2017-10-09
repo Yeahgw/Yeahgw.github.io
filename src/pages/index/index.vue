@@ -13,7 +13,7 @@
 						<a href="/detail.html">detail</a>
 					</li>
 					<li class="blog_item">
-						<a href="javascript:;">首页渲染效率</a>
+						<router-link to="/blog/123" active-class="active" exact-active-class=''>首页渲染效率</router-link>
 					</li>
 					<li class="blog_item">
 						<a href="javascript:;" title="减少网页白屏时间减少网页白屏时间">减少网页白屏时间减少网页白屏时间</a>
@@ -26,6 +26,8 @@
 					</li>
 				</ul>
 			</div>
+
+			<router-view></router-view>
 		</div>
 	</div>
 </template>
