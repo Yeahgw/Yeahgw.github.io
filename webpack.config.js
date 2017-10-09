@@ -24,7 +24,7 @@ let commonConfig = {
 		path: path.resolve(__dirname + '/'),
 		publicPath: '/',
 		filename: '[name].js',
-		chunkFilename: './js/components/[name].js'
+		chunkFilename: './js/[name].js'
 	},
 	/*externals:{
 		'vue': 'vue',

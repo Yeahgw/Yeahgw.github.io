@@ -2,6 +2,8 @@ import vue from 'vue';
 import vueRouter from 'vue-router';
 import index from '../pages/index/index.vue';
 
+vue.use(vueRouter);
+
 new vue({
 	el: '#app',
 	render: h=>h(index),
@@ -13,7 +15,7 @@ new vue({
 					vue.prototype.$http = res;
 					//this.$http.get('data.json').then((res)=>{}, err=>{alert('wrong')});
 				});
-			}, 'axios')
+			}, 'components/axios')
 		})
 	}
 })
