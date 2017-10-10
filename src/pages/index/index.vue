@@ -8,23 +8,21 @@
 
 		<div class="content">
 			<div class="left_tab">
-				<ul class="blog_list">
-					<li class="blog_item active">
-						<a href="/detail.html">detail</a>
-					</li>
-					<li class="blog_item">
-						<router-link to="/blog/123" active-class="active" exact-active-class=''>首页渲染效率</router-link>
-					</li>
-					<li class="blog_item">
-						<a href="javascript:;" title="减少网页白屏时间减少网页白屏时间">减少网页白屏时间减少网页白屏时间</a>
-					</li>
-					<li class="blog_item">
-						<a href="javascript:;">blog4</a>
-					</li>
-					<li class="blog_item">
-						<a href="javascript:;">blog5</a>
-					</li>
-				</ul>
+				<dl>
+					<dt></dt>
+					<dd v-for="item in blogMapping">
+						<p>{{item.name}}</p>
+						<ul class="blog_list">
+							<router-link v-for="blog in item.blogs"
+								class="blog_item" active-class="active" exact-active-class='' 
+								:to="'/blog/' + blog.id" tag="li" :key="blog.id"
+								>
+								<a href="javascript:;" :title="blog.title">{{blog.title}}</a>
+							</router-link>
+						</ul>
+					</dd>
+				</dl>
+				
 			</div>
 
 			<router-view></router-view>
@@ -34,8 +32,13 @@
 
 <script>
 	require("@/css/common.scss");
+	import blog from './blog.json';
 	export default{
-
+		data(){
+			return {
+				blogMapping: blog
+			}
+		}
 	}
 </script>
 
@@ -76,7 +79,6 @@
 	}
 	.left_tab{
 		flex: 0 0 300px;
-		padding-left: 40px;
 		height: 100%;
 		background: #f7f7f7;
 		overflow: auto;
@@ -87,6 +89,7 @@
 	.left_tab .blog_item{
 		position: relative;
 		margin-top: 5px;
+		padding-left: 40px;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
@@ -94,7 +97,7 @@
 	.left_tab .blog_item.active:after{
 		content: '';
 		position: absolute;
-		left: -20px;
+		left: 20px;
 		top: 0;
 		width: 5px;
 		height: 100%;
