@@ -29,7 +29,7 @@ new vue({
 					vue.prototype.$http = res;
 					//this.$http.get('data.json').then((res)=>{}, err=>{alert('wrong')});
 				});
-			}, 'components/axios')
+			}, 'axios')
 		})
 	}
 })

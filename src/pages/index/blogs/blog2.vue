@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<p>第二篇博客，哈哈哈</p>
+		<p>定义代码样式</p>
 	<pre class='hljs'>
 		<code>
 	<span class="hljs-keyword">new</span> vue({

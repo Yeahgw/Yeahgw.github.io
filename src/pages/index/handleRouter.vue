@@ -24,7 +24,12 @@
 				require.ensure(['./blogs/blog2.vue'], ()=>{
 					resolve(require('./blogs/blog2.vue'))
 				}, 'blog2');
-			}
+			},
+			blog4: resolve =>{
+				require.ensure(['./blogs/blog4.vue'], ()=>{
+					resolve(require('./blogs/blog4.vue'))
+				}, 'blog4');
+			}			
 		},
 		data(){
 			return {

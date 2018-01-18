@@ -23,8 +23,8 @@ let commonConfig = {
 	output: {
 		path: path.resolve(__dirname + '/'),
 		publicPath: '/',
-		filename: '[name].js',
-		chunkFilename: './js/[name].js'
+		filename: 'js/[name].js',
+		chunkFilename: 'js/components/[name].js'
 	},
 	/*externals:{
 		'vue': 'vue',
@@ -116,7 +116,7 @@ let commonConfig = {
 				test: /\.(png|jpg|gif|svg)$/,
 				loader: 'url-loader?limit=3072&name=./images/[name].[ext]',
 				options: {
-					name: '[name].[ext]?[hash]'
+					name: '[name].[ext]'
 				}
 			}
 		]
@@ -140,7 +140,7 @@ let commonConfig = {
                 }
 			}
 		}),
-		new extarctTextPlugin('[name].[hash:4].css')
+		new extarctTextPlugin('css/[name].css')
 	]
 }
 

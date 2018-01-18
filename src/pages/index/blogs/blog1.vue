@@ -1,7 +1,6 @@
 <template>
 	<div>
-		<p>第一篇博客，哈哈哈</p>
-		<p>开始装逼</p>
+		<p>blog框架搭好了，但是没时间写，哎</p>
 	</div>
 </template>
 <script>
